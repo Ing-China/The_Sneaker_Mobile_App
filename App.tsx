@@ -11,12 +11,15 @@ import React from 'react';
 import AppNavigation from './src/navigation';
 import {I18nextProvider} from 'react-i18next';
 import i18n from './src/translations/i18n';
+import {ThemeProvider} from './src/contexts';
 
 const App: React.FC = () => {
   return (
-    <I18nextProvider i18n={i18n}>
-      <AppNavigation />
-    </I18nextProvider>
+    <ThemeProvider>
+      <I18nextProvider i18n={i18n}>
+        <AppNavigation />
+      </I18nextProvider>
+    </ThemeProvider>
   );
 };
 

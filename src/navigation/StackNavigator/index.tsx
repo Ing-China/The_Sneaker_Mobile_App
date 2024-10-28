@@ -14,7 +14,7 @@ const Stack = createNativeStackNavigator();
 
 const StackNavigator: React.FC = () => {
   return (
-    <Stack.Navigator screenOptions={{headerShown: true}}>
+    <Stack.Navigator>
       <Stack.Screen name={Screen.HOME} component={HomeScreen} />
       <Stack.Screen name={Screen.FAVORITE} component={FavoriteScreen} />
       <Stack.Screen

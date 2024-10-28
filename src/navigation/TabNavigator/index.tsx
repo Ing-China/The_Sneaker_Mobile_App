@@ -4,13 +4,13 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
   CartScreen,
   HomeScreen,
-  NotificationScreen,
   OrderHistoryScreen,
   ProfileScreen,
   SearchScreen,
 } from '../../screens';
 import {Icons, Screen} from '../../constants';
 import {ProfileHeaderOption} from '../../headerOptions';
+import useThemeContext from '../../hooks/useThemeContext';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -19,17 +19,6 @@ const HomeStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name={Screen.HOME} component={HomeScreen} />
-    </Stack.Navigator>
-  );
-};
-
-const NotificationStack = () => {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name={Screen.NOTIFICATIONS}
-        component={NotificationScreen}
-      />
     </Stack.Navigator>
   );
 };
@@ -71,6 +60,8 @@ const ProfileStack = () => {
 };
 
 const TabNavigator: React.FC = () => {
+  const {colors} = useThemeContext();
+
   return (
     <Tab.Navigator
       screenOptions={{
@@ -80,6 +71,7 @@ const TabNavigator: React.FC = () => {
           bottom: 0,
           left: 0,
           right: 0,
+          backgroundColor: colors.background,
         },
       }}>
       <Tab.Screen
